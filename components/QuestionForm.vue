@@ -12,13 +12,19 @@
         </div>
       </div>
       <div class="w-full mt-10 max-w-4xl mx-auto">
-        <button type="submit" class="w-full py-5 font-semibold lg:text-xl md:text-xl text-lg  bg-card-btn  rounded"> Enviar pergunta</button>
+        <button v-if="!enviada" type="submit" class="w-full py-5 font-semibold lg:text-xl md:text-xl text-lg  bg-card-btn  rounded"> Enviar pergunta</button>
+        <button v-else type="button" class="w-full py-5 font-semibold lg:text-xl md:text-xl text-lg  bg-green-500  rounded"> pergunta Enviada</button>
       </div>
 		</form>
 	</div>
 </template>
  <script>
    export default {
+    data() {
+      return {
+        enviada: false
+      }
+    },
     methods: {
       inputfocus() {
         document.getElementById('input_question').focus()
@@ -30,7 +36,7 @@
           question:form.get('question')
         }
         await this.$axios.post("/question",context).then((res)=>{
-          console.log(res.data)
+          this.enviada = true
         })
       }
     },

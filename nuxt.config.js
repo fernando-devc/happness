@@ -1,5 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+
   head: {
     title: 'happness',
     htmlAttrs: {
@@ -40,6 +41,7 @@ export default {
   ],
   axios: {
     baseURL: "https://happness.colabdevs.com.br/",
+    // baseURL: "https://localhost:8000",
     // headers: {
     //   'access-control-allow-origin': '*',
     //   'content-type': 'application/json; charset=utf-8',
